@@ -1,0 +1,13 @@
+SELECT eventtime,
+        eventsource,
+        eventname,
+        awsregion,
+        sourceipaddress,
+        useragent,
+        errorcode,
+        errormessage,
+        requestparameters,
+        eventid
+FROM cloudtrail_logs
+WHERE userIdentity.userName LIKE '<IAM_username_here>'
+LIMIT 10;

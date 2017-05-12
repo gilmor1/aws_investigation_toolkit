@@ -1,0 +1,8 @@
+SELECT eventname
+FROM cloudtrail_logs
+WHERE eventname NOT LIKE 'Describe%' AND
+eventname NOT LIKE 'GET%' AND
+eventname NOT LIKE 'LIST%' AND
+eventname LIKE '%security%'
+GROUP BY eventname
+LIMIT 10;
