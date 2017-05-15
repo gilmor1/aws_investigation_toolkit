@@ -1,0 +1,10 @@
+SELECT eventtime,useridentity.type, useridentity.arn,eventsource,eventname,awsregion,sourceipaddress,useragent,errorcode,errormessage,requestparameters
+FROM investigation_toolkit_table
+WHERE eventsource LIKE 'iam.%' AND
+(eventname LIKE 'Delete%Policy' OR eventname LIKE 'Put%Policy' OR
+ eventname LIKE 'CreatePolicy%' OR eventname LIKE 'DeletePolicy%' OR
+ eventname LIKE 'Attach%Policy' OR eventname LIKE 'Detach%Policy')
+AND eventtime >= '2017-02-00T00:00:00Z'
+AND eventtime <= '2017-06-00T21:42:24Z'
+ORDER BY eventtime asc
+LIMIT 100;
